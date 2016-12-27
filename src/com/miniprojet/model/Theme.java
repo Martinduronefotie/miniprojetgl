@@ -16,7 +16,7 @@ public class Theme {
     private String etat_theme;
     
     /**
-     * constructeur de la classe theme
+     * constructeur de la classe Theme
      * @param libelle (libelle du theme)
      * @param etat_theme(prend 2 valeures oui ou non) permet de savoir si le theme a deja ete utilise oui ou non
      */
