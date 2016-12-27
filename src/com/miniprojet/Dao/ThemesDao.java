@@ -86,7 +86,7 @@ public class ThemesDao extends Dao{
     /**
      * mise a jour d'un theme
      * @param theme le nouveau theme 
-     * @param id (l'id du theme dont on veut faire une mofication ou une mise a jour)
+     * @param id (l'id du theme sur lequel on veut faire une mofication ou une mise a jour)
      */
     public void updateTheme(Theme theme, int id){
         try{
@@ -104,7 +104,7 @@ public class ThemesDao extends Dao{
     
     /**
      * cette methode permet d'avoir tous les themes presents dans la bd
-     * @return un tableau de themes
+     * @return un tableau de themes de type "ArrayList<Theme>"
      */
     public ArrayList<Theme> AllThemes(){
         ArrayList<Theme> themes = new ArrayList<Theme>();
