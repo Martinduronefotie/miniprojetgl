@@ -25,6 +25,10 @@ public class Theme {
         this.etat_theme = etat_theme;
     }
     
+    public  Theme(){
+        
+    }
+    
     
     
     public int getId() {

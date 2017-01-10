@@ -114,8 +114,9 @@ public class ThemesDao extends Dao{
             rs = st.executeQuery("SELECT * FROM themes");
             
             while(rs.next()){
-                String lib = rs.getString(1);
-                String etat = rs.getString(2);
+                int id = rs.getInt(1);
+                String lib = rs.getString(2);
+                String etat = rs.getString(3);
                 Theme t = new Theme(lib,etat);
                 themes.add(t);
             }
