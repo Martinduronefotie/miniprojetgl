@@ -6,6 +6,8 @@
 
 package com.miniprojet.Dao;
 
+import com.miniprojet.model.Theme;
+
 
 
 /**
@@ -19,6 +21,12 @@ public class MINIPROJET {
      */
     public static void main(String[] args) {
         
-    }
+        
+        Theme th = new Theme("mrrr", "kkkkk");
+        ThemesDao thdao = new ThemesDao();
+        thdao.ajouterTheme(th);
+        
+        
+   }
     
 }

@@ -7,7 +7,7 @@ package com.miniprojet.Dao;
 
 import com.miniprojet.model.Encadrement;
 import com.miniprojet.model.Enseignant;
-import com.miniprojet.model.Etudiants;
+import com.miniprojet.model.ModelEtudiants;
 import com.miniprojet.model.RendezVous;
 import com.miniprojet.model.Theme;
 import java.sql.PreparedStatement;
@@ -103,11 +103,11 @@ public class RendezVousDao extends Dao{
                RendezVous rdv = new RendezVous();
                
                 //recuperation des info sur l'etudiant
-                Etudiants etd = new Etudiants();
+               
+                ModelEtudiants etd = new ModelEtudiants();
                 etd.setIdetudiants(rs.getString("id_etudiants"));
-              
-
-                 //infomartion sur le rendez vous
+                
+               //infomartion sur le rendez vous
                 rdv.setId_rendezVous(rs.getInt("id_rendez_vous"));
                 rdv.setInformation(rs.getString("information"));
                 rdv.setHreAlert(rs.getString("heure_alert"));

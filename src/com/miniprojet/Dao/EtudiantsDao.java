@@ -74,7 +74,7 @@ public class EtudiantsDao extends Dao{
     public void updateEtd(ModelEtudiants etd) {
         try {
 
-            pst = super.getCon().prepareStatement("UPDATE etudiants SET encadrement_id_encadrement = ?,nom = ?, prenom = ? note = ?, WHERE id_etudiants = ?");
+            pst = super.getCon().prepareStatement("UPDATE etudiants SET encadrement_id_encadrement = ?,nom = ?, prenom = ? note = ? WHERE id_etudiants = ?");
             
 
             pst.setInt(1,etd.getEncadrement().getId_encadremet());

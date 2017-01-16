@@ -33,12 +33,12 @@ public class ThemesDao extends Dao{
     
         try{
            
-            pst = super.getCon().prepareStatement("INSERT INTO themes VALUES(?,?,?)");
-            pst.setString(1, null);
-            pst.setString(2, theme.getLibelle());
-            pst.setString(3, theme.getEtat_theme());
+            pst = super.getCon().prepareStatement("INSERT INTO themes VALUES(?,?)");
+            
+            pst.setString(1, theme.getLibelle());
+            pst.setString(2,"libre");
             pst.executeUpdate(); 
-            reponse = false;
+            
             
         }catch(Exception ex){
             ex.printStackTrace();

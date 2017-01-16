@@ -77,6 +77,12 @@ public class AnneAcademiqueDao extends Dao{
         }
     }
     
+    // 
+    
+    /**
+     * cette fonction recuperation de la liste des années acdemiques
+     * @return  List<ModelAnneAcademique> des années academiques 
+     */
       public List<ModelAnneAcademique> Allniveau(){
         List<ModelAnneAcademique> listniveau = new ArrayList<ModelAnneAcademique>();
         
@@ -97,6 +103,30 @@ public class AnneAcademiqueDao extends Dao{
         
         return listniveau;
     }
+      /**
+       * cette methpode recupere une annes academiques 
+       * @param id
+       * @return ModelAnneAcademique
+       */
+      public ModelAnneAcademique  recuperUneAnneAcademique(int id ) {
+           ModelAnneAcademique Anc = new ModelAnneAcademique();
+           try {
+
+            pst = super.getCon().prepareStatement("SELECT * FROM anne_academiques where id_annee_academiques=?");
+            pst.setInt(1,id);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                
+                Anc.setLibelle(rs.getString("libelle"));
+                 Anc.setId_anne_accademiques(id);
+           
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+          return Anc ;
+      }
     
     
     

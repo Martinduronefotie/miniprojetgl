@@ -20,9 +20,9 @@ public class RendezVous {
     private String temps;
     private String date;
     private String hreAlert;
-    private Etudiants etudiant;
+    private ModelEtudiants etudiant;
 
-    public RendezVous(String information, String prochainTravail, String temps, String date, String hreAlert, Etudiants etudiant) {
+    public RendezVous(String information, String prochainTravail, String temps, String date, String hreAlert, ModelEtudiants etudiant) {
         this.information = information;
         this.prochainTravail = prochainTravail;
         this.temps = temps;
@@ -81,11 +81,11 @@ public class RendezVous {
         this.hreAlert = hreAlert;
     }
 
-    public Etudiants getEtudiant() {
+    public ModelEtudiants getEtudiant() {
         return etudiant;
     }
 
-    public void setEtudiant(Etudiants etudiant) {
+    public void setEtudiant(ModelEtudiants etudiant) {
         this.etudiant = etudiant;
     }
     

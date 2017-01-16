@@ -122,6 +122,39 @@ public class NiveauDao extends Dao{
         return listniveau;
     }
     
+    public  Niveau recupereUnNiveau(int id){
+        
+       Niveau niv= new Niveau();
+       SpecialiterDao spdao = new SpecialiterDao();
+        
+       try {
+            pst = super.getCon().prepareStatement("SELECT * FROM  niveau where id_niveau=? ");
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                
+               
+                //recuperation des info sur une specialiter
+                
+               
+                 Specialiter spc;
+                 spc = spdao.oneSpecialiter(rs.getInt("specialiter_id_specialiter"));
+                 niv.setSpecialiter(spc);
+                 
+                 niv.setLibelle(rs.getString("libelle"));
+
+               
+               
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+         
+     return niv;
+    }
+    
     
     
     

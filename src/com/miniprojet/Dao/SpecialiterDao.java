@@ -108,13 +108,13 @@ public class SpecialiterDao extends Dao{
     }
     
     
-     public Specialiter oneSpecialiter(Specialiter spc){
+     public Specialiter oneSpecialiter(int id){
         
         Specialiter specialiter = new Specialiter() ;
         
          try{
            pst = super.getCon().prepareStatement("SELECT Libelle FROM specialter WHERE id_specialter = ?");
-            pst.setInt(1,spc.getIdspecialiter());
+            pst.setInt(1,id);
             pst.executeUpdate();
             
            while (rs.next()){
