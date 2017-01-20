@@ -10,8 +10,11 @@ import com.miniprojet.model.Encadrement;
 import com.miniprojet.model.ModelEtudiants;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,19 +36,38 @@ public class EtudiantsDao extends Dao{
      *@param etd (elle represente un etudiants )
      */
     public void ajouterETudiants(ModelEtudiants etd) {
-
+              
         try {
-
-            pst = super.getCon().prepareStatement("INSERT INTO etudiants VALUES(?,?,?,?,?)");
-            pst.setString(1, etd.getIdetudiants());
-            pst.setInt(2,etd.getEncadrement().getId_encadremet());
-            pst.setString(3,etd.getNom());
-            pst.setString(4, etd.getPrenom());
-            pst.setInt(5,0);
+            
+            pst= super.getCon().prepareStatement("INSERT INTO conpteur VALUES(?) ");
+            pst.setInt(1,0);
             pst.executeUpdate();
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            
+             pst = super.getCon().prepareStatement("SELECT * FROM conpteur");
+             rs = pst.executeQuery();
+             int i = 0;
+             while (rs.next()){
+                 i= rs.getInt("conpteurid");   
+            }
+            
+            
+           
+            try {
+                etd.setIdetudiants("iut"+String.valueOf(etd.hashCode())+""+String.valueOf(i));
+                pst = super.getCon().prepareStatement("INSERT INTO etudiants VALUES(?,?,?,?,?)");
+                pst.setString(1, etd.getIdetudiants());
+                pst.setInt(2,etd.getEncadrement().getId_encadremet());
+                pst.setString(3,etd.getNom());
+                pst.setString(4, etd.getPrenom());
+                pst.setInt(5,0);
+                pst.executeUpdate();
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EtudiantsDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -56,10 +78,10 @@ public class EtudiantsDao extends Dao{
      *
      * @param id (identifiant de l etudiants )
      */
-    public void deleteEtd(int id) {
+    public void deleteEtd(String id) {
         try {
             pst = super.getCon().prepareStatement("DELETE FROM etudiants WHERE id_etudiants = ?");
-            pst.setInt(1, id);
+            pst.setString(1,id);
             pst.executeUpdate();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -133,7 +155,7 @@ public class EtudiantsDao extends Dao{
      * @return une liste d etudiants
      */
     
-    public List<ModelEtudiants> recupUnEtudiants() {
+    public List<ModelEtudiants> recupAllEtudiants() {
 
       List<ModelEtudiants> listetd = new ArrayList<ModelEtudiants>();
        EncadrementDao ecdao = new EncadrementDao();
@@ -152,7 +174,7 @@ public class EtudiantsDao extends Dao{
                 //recupration des info sur un etudiants
 
                 etd.setEncadrement(ecard);
-                etd.setIdetudiants(rs.getString("id_encadrement"));
+                etd.setIdetudiants(rs.getString("id_etudiants"));
                 etd.setNom(rs.getString("nom"));
                 etd.setPrenom("prenom");
                 etd.setNote(rs.getDouble("note"));

@@ -33,10 +33,10 @@ public class ThemesDao extends Dao{
     
         try{
            
-            pst = super.getCon().prepareStatement("INSERT INTO themes VALUES(?,?)");
-            
-            pst.setString(1, theme.getLibelle());
-            pst.setString(2,"libre");
+            pst = super.getCon().prepareStatement("INSERT INTO themes VALUES(?,?,?)");
+            pst.setInt(1, 0);
+            pst.setString(2, theme.getLibelle());
+            pst.setString(3,"libre");
             pst.executeUpdate(); 
             
             
@@ -114,10 +114,11 @@ public class ThemesDao extends Dao{
             rs = st.executeQuery("SELECT * FROM themes");
             
             while(rs.next()){
-                int id = rs.getInt(1);
+                int id = rs.getInt("id_theme");
                 String lib = rs.getString(2);
                 String etat = rs.getString(3);
                 Theme t = new Theme(lib,etat);
+                t.setId(id);
                 themes.add(t);
             }
         }catch(Exception e)

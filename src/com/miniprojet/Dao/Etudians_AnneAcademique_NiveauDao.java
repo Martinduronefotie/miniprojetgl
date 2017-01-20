@@ -6,7 +6,6 @@
 
 package com.miniprojet.Dao;
 
-import com.miniprojet.model.Encadrement;
 import com.miniprojet.model.MEtudians_AnneAcademique_Niveau;
 import com.miniprojet.model.ModelAnneAcademique;
 import com.miniprojet.model.ModelEtudiants;
@@ -38,10 +37,12 @@ public class Etudians_AnneAcademique_NiveauDao extends Dao{
         
         try {
 
-            pst = super.getCon().prepareStatement("INSERT INTO etudiants_has_anne_academiques VALUES(?,?,?)");
-            pst.setString(1, ean.getEtud().getIdetudiants());
+            pst = super.getCon().prepareStatement("INSERT INTO etudiants_has_anne_academiques VALUES(?,?,?,?)");
+          
+             pst.setString(1, ean.getEtud().getIdetudiants());
             pst.setInt(2,ean.getAcd().getId_anne_accademiques());
             pst.setInt(3,ean.getNiv().getId_niveau());
+             pst.setInt(4,0);
             pst.executeUpdate();
 
         } catch (Exception ex) {
@@ -54,11 +55,11 @@ public class Etudians_AnneAcademique_NiveauDao extends Dao{
      * @param id (represente le matricule de l' etudiants)
      * return aucune valeu
      */
-    public  void deleteEtAnnN(String id){
+    public  void deleteEtAnnN(int id){
         
          try {
-             pst = super.getCon().prepareStatement("delete  from etudiants_has_anne_academiques where etudiants_id_etudiants =?");
-             pst.setString(1, id);
+             pst = super.getCon().prepareStatement("delete  from etudiants_has_anne_academiques where id =?");
+             pst.setInt(1, id);
              pst.executeUpdate();
 
          
@@ -93,7 +94,7 @@ public class Etudians_AnneAcademique_NiveauDao extends Dao{
      * @return une liste d etudiants
      */
     
-    public List<MEtudians_AnneAcademique_Niveau> recupUnEtudiants() {
+    public List<MEtudians_AnneAcademique_Niveau> recupUnEtudiantsAnnAcd() {
 
       List<MEtudians_AnneAcademique_Niveau> listena = new ArrayList<MEtudians_AnneAcademique_Niveau>();
       EtudiantsDao daoEd = new  EtudiantsDao();

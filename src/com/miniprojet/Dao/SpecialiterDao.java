@@ -37,9 +37,10 @@ public class SpecialiterDao extends Dao{
     
         try{
            
-            pst = super.getCon().prepareStatement("INSERT INTO specialter VALUES(?)");
            
-            pst.setString(1, spc.getLibelle());
+            pst = super.getCon().prepareStatement("INSERT INTO specialiter VALUES(?,?)");
+            pst.setInt(1, 0);
+            pst.setString(2, spc.getLibelle());
            
             pst.executeUpdate(); 
            
@@ -56,7 +57,7 @@ public class SpecialiterDao extends Dao{
      */
     public void deleteSpecialiter(int id){
         try{
-            pst = super.getCon().prepareStatement("DELETE FROM specialter WHERE id_specialter = ?");
+            pst = super.getCon().prepareStatement("DELETE FROM specialiter WHERE id_specialiter = ?");
             pst.setInt(1, id);
             pst.executeUpdate();
         }catch(Exception ex){
@@ -71,7 +72,7 @@ public class SpecialiterDao extends Dao{
     public void updateSpecialiter(Specialiter spc ){
         try{
             
-            pst = super.getCon().prepareStatement("UPDATE specialter SET libelle = ? WHERE id_specialter = ?");
+            pst = super.getCon().prepareStatement("UPDATE specialiter SET libelle = ? WHERE id_specialiter = ?");
             pst.setString(1, spc.getLibelle());
           
             pst.setInt(2,spc.getIdspecialiter());
@@ -91,10 +92,10 @@ public class SpecialiterDao extends Dao{
         
         try{
             Statement st = super.getCon().createStatement();
-            rs = st.executeQuery("SELECT * FROM specialter ");
+            rs = st.executeQuery("SELECT * FROM specialiter ");
             
             while(rs.next()){
-                int id = rs.getInt("id_specialter");
+                int id = rs.getInt("id_specialiter");
                 String libelle  = rs.getString("libelle");
                 Specialiter spc = new Specialiter(libelle,id);
                 specialiter.add(spc);
@@ -113,12 +114,14 @@ public class SpecialiterDao extends Dao{
         Specialiter specialiter = new Specialiter() ;
         
          try{
-           pst = super.getCon().prepareStatement("SELECT Libelle FROM specialter WHERE id_specialter = ?");
+           pst = super.getCon().prepareStatement("SELECT * FROM specialiter WHERE id_specialiter =?");
             pst.setInt(1,id);
-            pst.executeUpdate();
+            rs = pst.executeQuery();
             
            while (rs.next()){
 				specialiter.setLibelle(rs.getString("Libelle"));
+                                specialiter.setIspecialiter(id);
+                                
 			}
         }catch(Exception e){
             e.printStackTrace();

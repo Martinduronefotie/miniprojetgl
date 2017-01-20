@@ -15,7 +15,12 @@ public class ModelAnneAcademique {
     private int id_anne_accademiques;
     private String libelle ;
 
-    public ModelAnneAcademique(int id_anne_accademiques, String libelle) {
+    public ModelAnneAcademique(String libelle) {
+        
+        this.libelle = libelle;
+    }
+    
+     public ModelAnneAcademique( int id_anne_accademiques,String libelle) {
         this.id_anne_accademiques = id_anne_accademiques;
         this.libelle = libelle;
     }

@@ -11,6 +11,7 @@ import com.miniprojet.model.Theme;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -37,11 +38,12 @@ public class EncadrementDao extends Dao {
 
         try {
 
-            pst = super.getCon().prepareStatement("INSERT INTO encadrement VALUES(?,?,?,?)");
-            pst.setInt(1, enc.getTheme().getId());
-            pst.setInt(2, enc.getEnseignant().getId_enseignant());
-            pst.setString(3, enc.getType_encadrement());
-            pst.setString(4, "encours");
+            pst = super.getCon().prepareStatement("INSERT INTO encadrement VALUES(?,?,?,?,?)");
+            pst.setInt(1,0);
+            pst.setInt(2, enc.getTheme().getId());
+            pst.setInt(3, enc.getEnseignant().getId_enseignant());
+            pst.setString(4, enc.getType_encadrement());
+            pst.setString(5,"encours");
             pst.executeUpdate();
 
         } catch (Exception ex) {
@@ -93,8 +95,8 @@ public class EncadrementDao extends Dao {
      *
      * @return une list de type "ArrayList<Encadrement>"
      */
-    public ArrayList<Encadrement> Allencadrement() {
-        ArrayList<Encadrement> listencadrement = new ArrayList<Encadrement>();
+    public List<Encadrement> Allencadrement() {
+        List<Encadrement> listencadrement = new ArrayList<Encadrement>();
 
         try {
 
@@ -106,7 +108,7 @@ public class EncadrementDao extends Dao {
                 Theme th = new Theme();
                 th.setId(rs.getInt("id_theme"));
                 th.setLibelle(rs.getString("libelle_theme"));
-                th.setEtat_theme("etat_theme");
+                th.setEtat_theme(rs.getString("etat_theme"));
                 //recupration des info sur un enseignant
 
                 Enseignant ens = new Enseignant();
@@ -149,7 +151,7 @@ public class EncadrementDao extends Dao {
                 Theme th = new Theme();
                 th.setId(rs.getInt("id_theme"));
                 th.setLibelle(rs.getString("libelle_theme"));
-                th.setEtat_theme("etat_theme");
+                th.setEtat_theme(rs.getString("etat_theme"));
                 //recupration des info sur un enseignant
 
                 Enseignant ens = new Enseignant();
@@ -176,8 +178,8 @@ public class EncadrementDao extends Dao {
      *
      * @return une list de type "ArrayList<Encadrement>"
      */
-    public ArrayList<Encadrement> AllencdrementEffctue() {
-        ArrayList<Encadrement> listencadrement = new ArrayList<Encadrement>();
+    public List<Encadrement> AllencdrementEffctue() {
+        List<Encadrement> listencadrement = new ArrayList<Encadrement>();
 
         try {
 
@@ -190,7 +192,7 @@ public class EncadrementDao extends Dao {
                 Theme th = new Theme();
                 th.setId(rs.getInt("id_theme"));
                 th.setLibelle(rs.getString("libelle_theme"));
-                th.setEtat_theme("etat_theme");
+                th.setEtat_theme(rs.getString("etat_theme"));
                 //recupration des info sur un enseignant
 
                 Enseignant ens = new Enseignant();

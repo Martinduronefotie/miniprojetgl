@@ -5,15 +5,19 @@
  */
 package com.miniprojet.model;
 
+
+
+
 /**
  *
  * @author wilson black
  */
 public class Theme {
-
+    
     private int id;
     private String libelle;
     private String etat_theme;
+    
     
     /**
      * constructeur de la classe Theme
@@ -28,9 +32,15 @@ public class Theme {
     public  Theme(){
         
     }
-    
-    
-    
+
+    public Theme(int id, String libelle, String etat_theme) {
+         this.id=id; 
+         this.libelle = libelle;
+         this.etat_theme = etat_theme;
+        
+        
+    }
+ 
     public int getId() {
         return id;
     }
@@ -55,3 +65,4 @@ public class Theme {
         this.etat_theme = etat_theme;
     }
 }
+ 

@@ -36,8 +36,9 @@ public class AnneAcademiqueDao extends Dao{
     
         try{
            
-            pst = super.getCon().prepareStatement("INSERT INTO anne_academiques VALUES(?)");
-            pst.setString(1,ann.getLibelle());
+            pst = super.getCon().prepareStatement("INSERT INTO anne_academiques VALUES(?,?)");
+            pst.setInt(1, 0);
+            pst.setString(2,ann.getLibelle());
             pst.executeUpdate(); 
            
         }catch(Exception ex){

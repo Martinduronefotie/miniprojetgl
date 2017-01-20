@@ -17,8 +17,7 @@ public class Niveau {
     private String  libelle ;
     private Specialiter specialiter ;
 
-    public Niveau(int id_niveau, String libelle, Specialiter specialiter) {
-        this.id_niveau = id_niveau;
+    public Niveau( String libelle, Specialiter specialiter) {
         this.libelle = libelle;
         this.specialiter = specialiter;
     }

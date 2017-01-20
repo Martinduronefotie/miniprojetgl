@@ -37,10 +37,10 @@ public class NiveauDao extends Dao{
     
         try{
            
-            pst = super.getCon().prepareStatement("INSERT INTO niveau VALUES(?,?)");
-           
-            pst.setInt(1,niv.getSpecialiter().getIdspecialiter());
-            pst.setString(2,niv.getLibelle()); 
+            pst = super.getCon().prepareStatement("INSERT INTO niveau VALUES(?,?,?)");
+            pst.setInt(1,0);
+            pst.setInt(2,niv.getSpecialiter().getIdspecialiter());
+            pst.setString(3,niv.getLibelle()); 
            
             pst.executeUpdate(); 
            
@@ -96,17 +96,17 @@ public class NiveauDao extends Dao{
         
         try{
             Statement st = super.getCon().createStatement();
-            rs = st.executeQuery("SELECT * FROM niveau,specialiter where specialiter_id_specialiter=id_specialiter");
+            
+            rs = st.executeQuery("SELECT * FROM niveau");
             
             while(rs.next()){
                 
                 //recuper specialiter
+                Specialiter spc = new Specialiter();
+                SpecialiterDao spcd = new SpecialiterDao();
+                spc =spcd.oneSpecialiter(rs.getInt("specialiter_id_specialiter"));
                 
-                 int id = rs.getInt("id_specialter");
-                String libelle  = rs.getString("libelle");
-                Specialiter spc = new Specialiter(libelle,id);
-                
-                //recupere niveau
+                 //recupere niveau
                 
                 Niveau niv = new  Niveau();
                 niv.setId_niveau(rs.getInt("id_niveau"));
@@ -140,6 +140,7 @@ public class NiveauDao extends Dao{
                  Specialiter spc;
                  spc = spdao.oneSpecialiter(rs.getInt("specialiter_id_specialiter"));
                  niv.setSpecialiter(spc);
+                 niv.setId_niveau(id);
                  
                  niv.setLibelle(rs.getString("libelle"));
 
