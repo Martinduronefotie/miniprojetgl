@@ -105,7 +105,7 @@ public class FXMLControllerminiprojet implements Initializable {
             data.add(etd);
 
         }
-        tabtheme.setItems(data);
+         tabtheme.setItems(data);
          textTheme.setText("");
          textTheme.setText("");
 
@@ -185,10 +185,7 @@ public class FXMLControllerminiprojet implements Initializable {
 
         }
         tabtheme.setItems(data);
-        
-        
-        
-        
+         
         tabtheme.getSelectionModel().selectedItemProperty().addListener(
             (observable, oldValue, newValue) -> affichetheme(newValue));
     }

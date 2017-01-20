@@ -129,6 +129,30 @@ public class ThemesDao extends Dao{
         return themes;
     }
     
+     public ArrayList<Theme> AllThemeslibre(){
+        ArrayList<Theme> themes = new ArrayList<Theme>();
+        
+        try{
+            
+             pst = super.getCon().prepareStatement("SELECT * FROM themes where etat_theme=?");
+             pst.setString(1,"libre");
+             rs=pst.executeQuery();
+            while(rs.next()){
+                int id = rs.getInt("id_theme");
+                String lib = rs.getString(2);
+                String etat = rs.getString(3);
+                Theme t = new Theme(lib,etat);
+                t.setId(id);
+                themes.add(t);
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+        return themes;
+    }
+    
     
    
 }

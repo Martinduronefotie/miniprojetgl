@@ -60,13 +60,13 @@ public class MINIPROJET {
    // test encadrement 
          
          EncadrementDao encDao = new EncadrementDao();
-         Encadrement enc = new Encadrement(th, es,"type2", st);
+         Encadrement enc = new Encadrement(th, es,"type2", "");
          enc.setId_encadremet(1);
-         encDao.ajouterEncar(enc);
+         //encDao.ajouterEncar(enc);
          
         // encDao.deleteEncadrement(3);
          
-        enc= encDao.recupUnEncadrement(1);
+        //enc= encDao.recupUnEncadrement(1);
         
         
         enc.getTheme().getLibelle();
