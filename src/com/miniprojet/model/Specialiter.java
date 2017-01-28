@@ -11,6 +11,14 @@ package com.miniprojet.model;
  * @author durone
  */
 public class Specialiter {
+
+    public int getId_specialiter() {
+        return id_specialiter;
+    }
+
+    public void setId_specialiter(int id_specialiter) {
+        this.id_specialiter = id_specialiter;
+    }
     
     private int id_specialiter ;
     private String Libelle ;
@@ -26,6 +34,7 @@ public class Specialiter {
     /**
      * constructeur avec parametre 
      * @param Libelle 
+     * @param id 
      */
 
     public Specialiter(String Libelle , int id ) {

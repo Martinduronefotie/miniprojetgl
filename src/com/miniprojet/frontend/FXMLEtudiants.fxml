@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="fxmlEtudiants" prefHeight="400.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.miniprojet.controleur.FXMLEtudiantsController">
+<children><Separator layoutX="178.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="9.0" /><TextField fx:id="textnom" layoutX="14.0" layoutY="63.0" promptText="nom" /><TextField fx:id="textprenom" layoutX="14.0" layoutY="103.0" promptText="prenom" /><ComboBox fx:id="comboetudiant" layoutX="14.0" layoutY="144.0" onAction="#methhodchoithemes" prefWidth="150.0" promptText="numero encadrement" /><Button fx:id="btnenregistreetudiant" layoutX="14.0" layoutY="253.0" mnemonicParsing="false" onAction="#savaetudians" prefHeight="25.0" prefWidth="78.0" text="enregistre" /><Button fx:id="btnmodifier" layoutX="100.0" layoutY="253.0" mnemonicParsing="false" onAction="#modifieretudiants" prefHeight="25.0" prefWidth="63.0" text="modifier" /><TextField fx:id="textinfotheme" layoutX="14.74609375" layoutY="200.0" promptText="theme associe a l encadrement" /><Separator layoutY="50.0" prefHeight="0.0" prefWidth="179.0" /><TextField fx:id="textinfoencadrement" layoutX="14.0" layoutY="14.0" /><TableView fx:id="tabetudiants" layoutX="183.0" prefHeight="200.0" prefWidth="578.0">
+  <columns>
+    <TableColumn fx:id="Cmatricule" prefWidth="75.0" text="matricule" />
+    <TableColumn fx:id="Cnom" prefWidth="90.0" text="nom" />
+<TableColumn fx:id="Cprenom" prefWidth="90.0" text="prenom" /><TableColumn fx:id="Cthemes" prefWidth="87.0" text="themes" /><TableColumn fx:id="Ctypeencadrement" prefWidth="124.0" text="type encadrement" /><TableColumn fx:id="Cetatencadrement" prefWidth="116.0" text="etat encadrement" />
+  </columns>
+</TableView><Button fx:id="btnsupprimer" layoutX="381.0" layoutY="253.0" mnemonicParsing="false" onAction="#supprimeretudiants" prefHeight="25.0" prefWidth="71.0" text="supprimer" />
+</children></AnchorPane>

@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +26,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -34,7 +34,8 @@ import javafx.scene.control.TextField;
  * @author durone
  */
 public class FXMLEncadrementController implements Initializable {
-
+    private Encadrement encglobal = new Encadrement() ;
+    Theme th = new Theme();
     //text
     @FXML
     private TextField textinfo;
@@ -50,9 +51,21 @@ public class FXMLEncadrementController implements Initializable {
     private Button btnsaveenc;
     @FXML
     private Button btnmodifier;
-     @FXML
+    @FXML
     private Button btnsupencadrement;
-    //tabview
+   //tabview
+    @FXML
+    private TableView<Encadrement> tabencadrement;
+    @FXML
+    private TableColumn<Encadrement, Integer>Cidecad;
+    @FXML
+    private TableColumn<Encadrement, String> Cthemeenc;
+    @FXML
+    private TableColumn<Encadrement, String> Ctypeencadrem;
+    @FXML
+    private TableColumn<Encadrement, String> Cetaencadre;
+
+    final ObservableList<Encadrement> data = FXCollections.observableArrayList();
      
   ObservableList<String> combolis = FXCollections.observableArrayList();
   ObservableList<String> combtype = FXCollections.observableArrayList();
@@ -63,7 +76,7 @@ public class FXMLEncadrementController implements Initializable {
       
       
       
-      comboencadrement.getValue();
+       comboencadrement.getValue();
       
        ThemesDao thdao = new ThemesDao();
        List<Theme> list = new ArrayList<Theme>();
@@ -71,7 +84,7 @@ public class FXMLEncadrementController implements Initializable {
          
             for( Theme th :list){
           
-              if(th.getLibelle().equals( comboencadrement.getValue())){
+              if(th.getLibelle().equals(comboencadrement.getValue())){
                   
          Enseignant es = new Enseignant("durone","durone");
          es.setId_enseignant(2);         
@@ -81,7 +94,11 @@ public class FXMLEncadrementController implements Initializable {
          
          encDao.ajouterEncar(enc);
          thdao.updateTheme(th,th.getId());
+         data.add(enc);
+         tabencadrement.setItems(data);
+         
               }
+              
               
          
       }
@@ -89,10 +106,144 @@ public class FXMLEncadrementController implements Initializable {
       
       
   }
+  
+  
+  public  void afficheencar(Encadrement enc){
+        
+        if(enc!=null){
+            
+            btnmodifier.setDisable(false);
+            btnsupencadrement.setDisable(false);
+            textinfo.setText(enc.getThdata());
+            textinfocadrement.setText(enc.getType_encadrement());
+            btnsaveenc.setDisable(true);
+            
+            encglobal.setId_encadremet(enc.getId_encadremet());
+            System.out.println(encglobal.getId_encadremet());
+            Enseignant es = new Enseignant("durone","durone");
+            es.setId_enseignant(2);
+            encglobal.setEnseignant(es);
+            th.setLibelle(enc.getThdata());
+            th.setId(enc.getIdthemes());
+            encglobal.setTheme(th);
+            encglobal.setType_encadrement(enc.getType_encadrement());
+            encglobal.setEta_encadrement(enc.getEta_encadrement());
+            
+              
+        }
+        
+        
+    }
   public void modifierencadrement(ActionEvent event) throws IOException{
+        comboencadrement.getValue();
+       EncadrementDao encDao = new EncadrementDao();
+       ThemesDao thdao = new ThemesDao();
+       List<Theme> list = new ArrayList<Theme>();
+       list=thdao.AllThemeslibre();
+         
+            for( Theme th :list){
+          
+              if(th.getLibelle().equals(comboencadrement.getValue())){
+                  
+         Enseignant es = new Enseignant("durone","durone");
+         es.setId_enseignant(2);         
+        
+         Encadrement enc = new Encadrement(th,es, (String) combotypeencadrement.getValue(),"encours");
+         enc.setId_encadremet(encglobal.getId_encadremet());
+         
+         
+         
+         encDao.updateEncadrement(enc);
+        data.clear();
+        
+        
+         
+              }
+              
+              
+              
+         
+      }
+            
+             List<Encadrement> listen= new ArrayList<Encadrement>();
+         listen = encDao.Allencadrement();
+            
+            
+        Cidecad.setCellValueFactory(new PropertyValueFactory<Encadrement, Integer>("id_encadremet"));
+        Cthemeenc.setCellValueFactory(new PropertyValueFactory<Encadrement,String>("thdata"));
+        Ctypeencadrem.setCellValueFactory(new PropertyValueFactory<Encadrement, String>("Type_encadrement"));
+        Cetaencadre.setCellValueFactory(new PropertyValueFactory<Encadrement, String>("eta_encadrement"));
+        
+     
+        for (Encadrement enc : listen) {
+
+            data.add(enc);
+            
+
+        }
+        tabencadrement.setItems(data);
              
    }
    public void suppencadrement(ActionEvent event) throws IOException{
+        btnsupencadrement.setDisable(true);
+         btnmodifier.setDisable(true);
+         btnsaveenc.setDisable(false);
+         btnsupencadrement.setDisable(true);
+         btnmodifier.setDisable(true);
+         btnsaveenc.setDisable(false);
+         EncadrementDao encDao = new EncadrementDao();
+        
+       
+         
+          encDao.deleteEncadrement(encglobal.getId_encadremet());
+          th.setEtat_theme("libre");
+            ThemesDao thdao = new ThemesDao();
+            thdao.updateTheme(th,th.getId());
+          
+          data.clear();
+          combolis.clear();
+          
+          
+        List<Theme> list = new ArrayList<Theme>();
+         list=thdao.AllThemeslibre();
+         
+            for( Theme etd :list){
+          
+         
+          combolis.add(etd.getLibelle());
+         
+          
+      }
+            
+            comboencadrement.setItems(combolis);
+          
+          
+       
+        
+         List<Encadrement> listen= new ArrayList<Encadrement>();
+         listen = encDao.Allencadrement();
+            
+            
+        Cidecad.setCellValueFactory(new PropertyValueFactory<Encadrement, Integer>("id_encadremet"));
+        Cthemeenc.setCellValueFactory(new PropertyValueFactory<Encadrement,String>("thdata"));
+        Ctypeencadrem.setCellValueFactory(new PropertyValueFactory<Encadrement, String>("Type_encadrement"));
+        Cetaencadre.setCellValueFactory(new PropertyValueFactory<Encadrement, String>("eta_encadrement"));
+        
+     
+        for (Encadrement enc : listen) {
+
+            data.add(enc);
+            
+
+        }
+        tabencadrement.setItems(data);
+        
+        textinfo.setText("");
+        textinfocadrement.setText("");
+          
+          
+         
+        
          
     
    }
@@ -127,8 +278,31 @@ public class FXMLEncadrementController implements Initializable {
             
             combotypeencadrement.setItems(combtype);
             
+         EncadrementDao encDao = new EncadrementDao();
+       
+        
+         List<Encadrement> listen= new ArrayList<Encadrement>();
+         listen = encDao.Allencadrement();
             
             
+        Cidecad.setCellValueFactory(new PropertyValueFactory<Encadrement, Integer>("id_encadremet"));
+        Cthemeenc.setCellValueFactory(new PropertyValueFactory<Encadrement,String>("thdata"));
+        Ctypeencadrem.setCellValueFactory(new PropertyValueFactory<Encadrement, String>("Type_encadrement"));
+        Cetaencadre.setCellValueFactory(new PropertyValueFactory<Encadrement, String>("eta_encadrement"));
+        
+     
+        for (Encadrement enc : listen) {
+
+            data.add(enc);
+            
+
+        }
+        tabencadrement.setItems(data);
+            
+            
+         
+        tabencadrement.getSelectionModel().selectedItemProperty().addListener(
+            (observable, oldValue, newValue) -> afficheencar(newValue));    
       
       
       

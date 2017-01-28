@@ -182,6 +182,7 @@ public class FXMLControllerminiprojet implements Initializable {
         for (Theme etd : list) {
 
             data.add(etd);
+            
 
         }
         tabtheme.setItems(data);

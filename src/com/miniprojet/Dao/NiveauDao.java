@@ -74,7 +74,7 @@ public class NiveauDao extends Dao{
             
          
             
-            pst = super.getCon().prepareStatement("UPDATE niveau SET specialiter_id_specialiter = ? ,libelle =? WHERE id_niveau = ?");
+            pst = super.getCon().prepareStatement("UPDATE niveau SET specialiter_id_specialiter =? ,libelle=? WHERE id_niveau=?");
             pst.setInt(1,niv.getSpecialiter().getIdspecialiter());
             pst.setString(2,niv.getLibelle());
             pst.setInt(3,niv.getId_niveau());

@@ -70,7 +70,7 @@ public class RendezVousDao extends Dao{
     public void updateRendezVous(RendezVous rdv) {
         try {
 
-            pst = super.getCon().prepareStatement("UPDATE rendez_vous SET etudiants_id_etudiants = ?,heure = ?,date = ?, heure_alert = ?, information = ?, prochain_travail = ? , WHERE id_rendez_vous = ?");
+            pst = super.getCon().prepareStatement("UPDATE rendez_vous SET etudiants_id_etudiants = ?,heure = ?,date = ?, heure_alert = ?, information = ?, prochain_travail = ? WHERE id_rendez_vous = ?");
            
             pst.setString(1, rdv.getEtudiant().getIdetudiants());
             pst.setString(2, rdv.getTemps());
@@ -113,6 +113,7 @@ public class RendezVousDao extends Dao{
                 rdv.setHreAlert(rs.getString("heure_alert"));
                 rdv.setProchainTravail(rs.getString("prochain_travail"));
                 rdv.setDate(rs.getString("date"));
+                rdv.setTemps(rs.getString("heure"));
                 rdv.setEtudiant(etd);
                 
                 listRendezVous.add(rdv);

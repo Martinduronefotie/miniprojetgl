@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefHeight="400.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx/8" fx:controller="com.miniprojet.controleur.FXMLMainController">
+<children><TabPane layoutY="2.0" prefHeight="428.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
+  <tabs>
+     <Tab text="RENDEZ VOUS" >
+     
+        <content><fx:include source="FXML1Rendevous.fxml"/></content>
+        
+     </Tab>
+     <Tab text="THEME" >
+     
+        <content><fx:include source="FXML.fxml"/></content>
+        
+     </Tab> 
+     
+     <Tab text="ENCADREMENT" >
+     
+      <content><fx:include source="FXMLEncadrement.fxml"/></content>
+        
+     </Tab> 
+     
+     <Tab text="ETUDIANS" >
+     
+      <content><fx:include source="FXMLEtudiants.fxml"/></content>
+        
+     </Tab>
+     
+       <Tab text="NIVEAU">
+     
+      <content><fx:include source="FXMLNiveau.fxml"/></content>
+        
+      </Tab> 
+      
+      <Tab text="SPECIALITER">
+     
+      <content><fx:include source="FXMLSpecialiter.fxml"/></content>
+        
+      </Tab> 
+
+  </tabs>
+</TabPane>
+</children></AnchorPane>

@@ -38,7 +38,7 @@ public class MINIPROJET {
         //thdao.ajouterTheme(th);
         
         //thdao.deleteTheme(2);
-         thdao.updateTheme(th,7);
+         //thdao.updateTheme(th,7);
          List<Theme> list = new ArrayList<Theme>();
          list=thdao.AllThemes();
          /*  for( Theme etd :list){
@@ -55,7 +55,7 @@ public class MINIPROJET {
          Enseignant es = new Enseignant("durone","durone");
          es.setId_enseignant(2);
          String st= ensDAO.connect(es);
-         System.out.println(st);
+       //  System.out.println(st);
          
    // test encadrement 
          
@@ -70,8 +70,8 @@ public class MINIPROJET {
         
         
         enc.getTheme().getLibelle();
-        System.out.println(enc.getEnseignant().getLogin());
-         System.out.println( enc.getTheme().getEtat_theme());
+        //System.out.println(enc.getEnseignant().getLogin());
+        // System.out.println( enc.getTheme().getEtat_theme());
          
          List<Encadrement> listen= new ArrayList<Encadrement>();
          listen = encDao.Allencadrement();
@@ -133,6 +133,10 @@ public class MINIPROJET {
         List<ModelEtudiants> liustetd= new ArrayList<ModelEtudiants>();
         
          liustetd=  etdao.recupAllEtudiants();
+         for(ModelEtudiants etd : liustetd){
+             
+             System.out.println(etd.getEncadrement().getEta_encadrement());
+         }
         
    // test annes academiques
          

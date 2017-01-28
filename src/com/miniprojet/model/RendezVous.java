@@ -13,7 +13,7 @@ import static java.util.Calendar.DATE;
  * @author william
  */
 public class RendezVous {
-    
+    private String matriIn ;
     private int id_rendezVous;
     private String information;
     private String prochainTravail;
@@ -29,9 +29,22 @@ public class RendezVous {
         this.date = date;
         this.hreAlert = hreAlert;
         this.etudiant = etudiant;
+        this.matriIn= this.etudiant.getIdetudiants();
     }
 
     public RendezVous() {};
+    
+    //getter and setter matriinterface//getter and setter matriinterface
+    
+    
+
+    public String getMatriIn() {
+        return etudiant.getIdetudiants();
+    }
+
+    public void setMatriIn(String matriIn) {
+        this.matriIn = etudiant.getIdetudiants();
+    }
 
     public int getId_rendezVous() {
         return id_rendezVous;

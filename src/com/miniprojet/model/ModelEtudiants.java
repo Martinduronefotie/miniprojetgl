@@ -17,6 +17,11 @@ public class ModelEtudiants {
     private String nom;
     private String prenom;
     private Double note ;
+    
+    //info fronteint
+    private String libelle;
+    private String Type_encadrement;
+    private String eta_encadrement ;
 
     public ModelEtudiants(String idetudiants, Encadrement encadrement, String nom, String prenom, Double note) {
         this.idetudiants = idetudiants;
@@ -24,7 +29,39 @@ public class ModelEtudiants {
         this.nom = nom;
         this.prenom = prenom;
         this.note = note;
+        
+        libelle= this.encadrement.getTheme().getLibelle();
+        Type_encadrement= this.encadrement.getType_encadrement();
+        eta_encadrement= this.encadrement.getEta_encadrement();
+        
     }
+
+    public String getLibelle() {
+        return encadrement.getTheme().getLibelle();
+        //return  "hhh";
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = encadrement.getTheme().getLibelle() ;
+    }
+
+    public String getType_encadrement() {
+        return encadrement.getType_encadrement();
+    }
+
+    public void setType_encadrement(String Type_encadrement) {
+        this.Type_encadrement = encadrement.getType_encadrement();
+    }
+
+    public String getEta_encadrement() {
+        return encadrement.getEta_encadrement();
+    }
+
+    public void setEta_encadrement(String eta_encadrement) {
+        this.eta_encadrement = encadrement.getEta_encadrement();
+    }
+    
+    
 
     public Double getNote() {
         return note;

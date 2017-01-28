@@ -96,13 +96,13 @@ public class EtudiantsDao extends Dao{
     public void updateEtd(ModelEtudiants etd) {
         try {
 
-            pst = super.getCon().prepareStatement("UPDATE etudiants SET encadrement_id_encadrement = ?,nom = ?, prenom = ? note = ? WHERE id_etudiants = ?");
+            pst = super.getCon().prepareStatement("UPDATE etudiants SET encadrement_id_encadrement = ?,nom = ?, prenom = ?,note = ? WHERE id_etudiants = ?");
             
 
             pst.setInt(1,etd.getEncadrement().getId_encadremet());
             pst.setString(2,etd.getNom());
             pst.setString(3,etd.getPrenom());
-            pst.setDouble(4,etd.getNote());
+            pst.setDouble(4,0);
             pst.setString(5,etd.getIdetudiants());
 
             pst.executeUpdate();
@@ -169,14 +169,14 @@ public class EtudiantsDao extends Dao{
                 //recuperation des info sur un encadrement
                 
                
-                 Encadrement ecard = ecdao.recupUnEncadrement(rs.getInt("encadrement_id_encadrement"));
+                 Encadrement ecard = ecdao.recupUnEncadrementencours(rs.getInt("encadrement_id_encadrement"));
                 
                 //recupration des info sur un etudiants
 
                 etd.setEncadrement(ecard);
                 etd.setIdetudiants(rs.getString("id_etudiants"));
                 etd.setNom(rs.getString("nom"));
-                etd.setPrenom("prenom");
+                etd.setPrenom(rs.getString("prenom"));
                 etd.setNote(rs.getDouble("note"));
                 
                 listetd.add(etd);

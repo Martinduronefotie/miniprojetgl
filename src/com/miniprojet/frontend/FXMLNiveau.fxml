@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="fxmlNiveau" prefHeight="400.0" prefWidth="502.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.miniprojet.controleur.FXMLNiveauController">
+<children><Separator layoutX="175.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="5.0" /><ComboBox fx:id="Combospeciliter" layoutX="8.0" layoutY="143.0" prefHeight="25.0" prefWidth="157.0" promptText="specialiter" /><TextField fx:id="textniveau" layoutX="8.0" layoutY="100.0" prefHeight="25.0" prefWidth="157.0" promptText="saisir le niveau" /><Button fx:id="btnenregistreniveau" layoutX="8.0" layoutY="206.0" mnemonicParsing="false" onAction="#saveniveau" prefHeight="25.0" prefWidth="76.0" text="enregistre" /><Button fx:id="btnmodifier" layoutX="91.0" layoutY="206.0" mnemonicParsing="false" onAction="#modifierniveau" prefHeight="25.0" prefWidth="69.0" text="modifier" /><TableView fx:id="tabniveau" layoutX="181.0" prefHeight="200.0" prefWidth="316.0">
+  <columns>
+    <TableColumn fx:id="Cidspeciliter" prefWidth="75.0" text="id" />
+    <TableColumn fx:id="Cspeciliter" prefWidth="137.0" text="spécialiter" />
+<TableColumn fx:id="Cniveau" prefWidth="103.0" text="niveau" />
+  </columns>
+</TableView><Button fx:id="btnsupprimer" layoutX="311.0" layoutY="252.0" mnemonicParsing="false" onAction="#supprimerniveau" text="supprimer" /><Separator layoutX="1.0" layoutY="77.0" prefHeight="8.0" prefWidth="174.0" /><TextField fx:id="textinfoniveau" layoutX="8.0" layoutY="38.0" prefHeight="25.0" prefWidth="157.0" promptText="info sur le niveau" />
+</children></AnchorPane>

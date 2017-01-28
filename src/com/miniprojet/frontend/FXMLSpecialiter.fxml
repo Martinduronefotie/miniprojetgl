@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="fxmlSpecialiter" prefHeight="400.0" prefWidth="469.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.miniprojet.controleur.FXMLSpecialiterController">
+<children><Separator layoutX="175.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="0.0" /><TextField fx:id="textspecialiter" layoutX="14.0" layoutY="104.0" promptText="specialiter" /><Button fx:id="btnenregistrespecialiter" layoutX="6.0" layoutY="175.0" mnemonicParsing="false" onAction="#savesspecialiter" text="enregistre" /><Button fx:id="btnmodifier" layoutX="89.0" layoutY="175.0" mnemonicParsing="false" onAction="#modifierspecialiter" prefHeight="25.0" prefWidth="70.0" text="modifier" /><TableView fx:id="tabspeciali" layoutX="175.0" layoutY="4.0" prefHeight="200.0" prefWidth="293.0">
+  <columns>
+    <TableColumn fx:id="Cidspecialiter" prefWidth="112.0" text="id" />
+    <TableColumn fx:id="Cspeciliter" prefWidth="178.0" text="specialiter" />
+  </columns>
+</TableView><Button fx:id="btnsupprimer" layoutX="273.0" layoutY="245.0" mnemonicParsing="false" onAction="#supprimerspeciliter" text="supprimer" />
+</children></AnchorPane>

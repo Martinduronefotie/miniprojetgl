@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -87,15 +88,16 @@ public class SpecialiterDao extends Dao{
      * cette methode permet d'avoir tous les specialiter  presents dans la bd
      * @return une list  de type "ArrayList<Specialiter>"
      */
-    public ArrayList<Specialiter> AllSpecialiter(){
-        ArrayList<Specialiter> specialiter = new ArrayList<Specialiter>();
+    public List<Specialiter> AllSpecialiter(){
+        List<Specialiter> specialiter = new ArrayList<Specialiter>();
         
         try{
             Statement st = super.getCon().createStatement();
-            rs = st.executeQuery("SELECT * FROM specialiter ");
+            rs = st.executeQuery("SELECT * FROM specialiter");
             
             while(rs.next()){
                 int id = rs.getInt("id_specialiter");
+                
                 String libelle  = rs.getString("libelle");
                 Specialiter spc = new Specialiter(libelle,id);
                 specialiter.add(spc);

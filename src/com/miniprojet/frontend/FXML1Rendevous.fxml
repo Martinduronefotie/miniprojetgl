@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="fxml1Rendevous" prefHeight="400.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.miniprojet.controleur.FXML1RendevousController">
+<children><Separator layoutX="207.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="5.0" /><ComboBox fx:id="comboetudiantmaticule" layoutX="23.0" layoutY="14.0" prefHeight="25.0" prefWidth="170.0" /><DatePicker fx:id="dateredevous" layoutX="23.0" layoutY="79.0" prefHeight="25.0" prefWidth="170.0" promptText="date du rende-vous" /><ComboBox fx:id="comboalert" layoutX="23.0" layoutY="117.0" prefHeight="25.0" prefWidth="170.0" promptText="espace d alert" /><TextArea fx:id="fieldrendevous" layoutX="21.0" layoutY="165.0" prefHeight="71.0" prefWidth="180.0" promptText="TAF DU RENDEVOUZ" /><TextArea fx:id="fieldraportrendevous" layoutX="426.0" layoutY="298.0" prefHeight="71.0" prefWidth="200.0" promptText="rapport  du rende vous" /><ComboBox fx:id="conboheure" layoutX="24.0" layoutY="48.0" prefHeight="25.0" prefWidth="74.0" /><ComboBox fx:id="combomin" layoutX="123.0" layoutY="48.0" prefHeight="25.0" prefWidth="70.0" /><Button fx:id="btnenregistre" layoutX="26.0" layoutY="266.0" mnemonicParsing="false" onAction="#saverandezvous" text="enregistre" /><Button fx:id="btnmodifier" layoutX="123.0" layoutY="266.0" mnemonicParsing="false" onAction="#modifierrendevous" prefHeight="25.0" prefWidth="70.0" text="modifier" /><TextArea fx:id="fieldinforedevous" layoutX="213.0" layoutY="298.0" prefHeight="71.0" prefWidth="200.0" promptText="info taf tu dit redevous" /><Button fx:id="btnraport" layoutX="662.0" layoutY="321.0" mnemonicParsing="false" onAction="#rapportredevous" text="en_rapport" /><TableView fx:id="tabrebdevous" layoutX="213.0" layoutY="4.0" prefHeight="200.0" prefWidth="539.0">
+  <columns>
+    <TableColumn fx:id="Cid" prefWidth="75.0" text="id" />
+    <TableColumn fx:id="Cmatricule" prefWidth="123.0" text="matricule etudiants" />
+<TableColumn fx:id="Cheure" prefWidth="123.0" text="heure" />
+<TableColumn fx:id="Cinterval" prefWidth="123.0" text="interval alert" />
+<TableColumn fx:id="Cdate" prefWidth="123.0" text="date" />
+  </columns>
+</TableView><Button fx:id="btnsup" layoutX="381.0" layoutY="247.0" mnemonicParsing="false" onAction="#supprimerrendevouz" prefHeight="25.0" prefWidth="90.0" text="supprimer" /><Label layoutX="5.0" layoutY="48.0" prefHeight="25.0" prefWidth="16.0" text="h:" /><Label layoutX="98.0" layoutY="52.0" prefHeight="17.0" prefWidth="26.0" text="mn:" />
+</children></AnchorPane>

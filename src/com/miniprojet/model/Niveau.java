@@ -16,10 +16,23 @@ public class Niveau {
     private int id_niveau;
     private String  libelle ;
     private Specialiter specialiter ;
+    private String LibelSpecialiter;
 
     public Niveau( String libelle, Specialiter specialiter) {
+        
         this.libelle = libelle;
         this.specialiter = specialiter;
+        this.LibelSpecialiter=specialiter.getLibelle();
+    }
+
+    public String getLibelSpecialiter() {
+        return specialiter.getLibelle();
+    }
+
+    public void setLibelSpecialiter(String LibelSpecialiter) {
+        
+        this.LibelSpecialiter =specialiter.getLibelle();
+        
     }
     
 
