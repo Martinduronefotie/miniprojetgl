@@ -155,6 +155,42 @@ public class NiveauDao extends Dao{
          
      return niv;
     }
+    /**
+     * 
+     * @param info
+     * @return  List<Niveau>
+     */
+    public  List<Niveau>  recuperelibelleniveau(String info){
+       List<Niveau> listniveau = new ArrayList<Niveau>();  
+       Niveau niv= new Niveau();
+       SpecialiterDao spdao = new SpecialiterDao();
+        
+       try {
+            pst = super.getCon().prepareStatement("SELECT * FROM  niveau where libelle=? ");
+            pst.setString(1,info);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                
+               
+                //recuperation des info sur une specialiter
+                
+               
+                 Specialiter spc;
+                 spc = spdao.oneSpecialiter(rs.getInt("specialiter_id_specialiter"));
+                 niv.setSpecialiter(spc);
+                 niv.setId_niveau(rs.getInt("id_niveau"));
+                 niv.setLibelle(rs.getString("libelle"));
+                 listniveau.add(niv);
+               
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+         
+     return listniveau;
+    }  
     
     
     

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="490.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.miniprojet.controleur.FXMLAnneeAcademiqueController">
+<children><Separator layoutX="156.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="0.0" /><TextField fx:id="textannesacademiques" layoutX="3.0" layoutY="108.0" promptText="anneé academique" /><Button fx:id="btnenregistre" layoutX="7.0" layoutY="175.0" mnemonicParsing="false" onAction="#saveanneAcademique" text="enregistre" /><Button fx:id="btnmodifier" layoutX="83.0" layoutY="175.0" mnemonicParsing="false" onAction="#modifieranneAc" prefHeight="25.0" prefWidth="70.0" text="modifier" /><TableView fx:id="tabanneacademiques" layoutX="162.0" layoutY="8.0" prefHeight="200.0" prefWidth="322.0">
+  <columns>
+    <TableColumn fx:id="Cid" prefWidth="164.0" text="id" />
+    <TableColumn fx:id="Clibelle" prefWidth="157.0" text="libelle" />
+  </columns>
+</TableView><Button fx:id="btnsupp" layoutX="284.0" layoutY="246.0" mnemonicParsing="false" onAction="#supprimerAnneeAcad" prefHeight="25.0" prefWidth="70.0" text="supprimer" />
+</children></AnchorPane>

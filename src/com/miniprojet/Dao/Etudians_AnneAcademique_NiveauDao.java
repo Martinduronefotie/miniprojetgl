@@ -73,11 +73,12 @@ public class Etudians_AnneAcademique_NiveauDao extends Dao{
     public void misajourEAN(MEtudians_AnneAcademique_Niveau ean){
         try {
 
-            pst = super.getCon().prepareStatement("UPDATE etudiants_has_anne_academiques SET anne_academiques_id_annee_academiques = ?,niveau_id_niveau = ?  WHERE etudiants_id_etudiants = ?");
+            pst = super.getCon().prepareStatement("UPDATE etudiants_has_anne_academiques SET anne_academiques_id_annee_academiques = ?,niveau_id_niveau = ?  WHERE id = ?");
             
 
             pst.setInt(1,ean.getAcd().getId_anne_accademiques());
             pst.setInt(2,ean.getNiv().getId_niveau());
+            pst.setInt(3,ean.getId());
            
 
             pst.executeUpdate();
@@ -108,14 +109,17 @@ public class Etudians_AnneAcademique_NiveauDao extends Dao{
                 
                 //recupération d une année academiques
                  ModelEtudiants etd = daoEd.recupUnEtudiants(rs.getString("etudiants_id_etudiants"));
-                //recupération tu niveau
+                // System.out.println(etd.getIdetudiants());
+                 //recupération tu niveau
                  Niveau niv = ndao.recupereUnNiveau(rs.getInt("niveau_id_niveau"));
                 //recuperation des info sur un encadrement
                
                 //recupration des info années academiques 
                  
                  ModelAnneAcademique annc=ancdao.recuperUneAnneAcademique(rs.getInt("anne_academiques_id_annee_academiques"));
+                 
                  MEtudians_AnneAcademique_Niveau Ean = new MEtudians_AnneAcademique_Niveau(etd, annc, niv);
+                 Ean.setId(rs.getInt("id"));
                  listena.add(Ean);  
 
             }

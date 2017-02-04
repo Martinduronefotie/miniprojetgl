@@ -24,7 +24,7 @@
         
      </Tab> 
      
-     <Tab text="ETUDIANS" >
+     <Tab text="ETUDIANTS" >
      
       <content><fx:include source="FXMLEtudiants.fxml"/></content>
         
@@ -41,6 +41,20 @@
       <content><fx:include source="FXMLSpecialiter.fxml"/></content>
         
       </Tab> 
+      
+      <Tab text="ANNES ACADEMIQUES">
+     
+      <content><fx:include source="FXMLAnneeAcademique.fxml"/></content>
+        
+      </Tab>
+      
+        <Tab text="ANNES ACADEMIQUES ETUDIANTS">
+     
+      <content><fx:include source="FXMLAnneacademiquesetudiants.fxml"/></content>
+        
+      </Tab> 
+      
+     
 
   </tabs>
 </TabPane>

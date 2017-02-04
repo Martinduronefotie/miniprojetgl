@@ -84,7 +84,7 @@ public class AnneAcademiqueDao extends Dao{
      * cette fonction recuperation de la liste des années acdemiques
      * @return  List<ModelAnneAcademique> des années academiques 
      */
-      public List<ModelAnneAcademique> Allniveau(){
+      public List<ModelAnneAcademique> AllAnneAc(){
         List<ModelAnneAcademique> listniveau = new ArrayList<ModelAnneAcademique>();
         
         try{
