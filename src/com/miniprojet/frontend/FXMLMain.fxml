@@ -52,6 +52,11 @@
      
       <content><fx:include source="FXMLAnneacademiquesetudiants.fxml"/></content>
         
+      </Tab>
+      <Tab text="CLOTURE ENCADREMENT">
+     
+      <content><fx:include source="FXMLNOTEETUDIANTS.fxml"/></content>
+        
       </Tab> 
       
      

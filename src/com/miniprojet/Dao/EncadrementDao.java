@@ -244,6 +244,41 @@ public class EncadrementDao extends Dao {
 
         return encadre;
     }
+     
+     public Encadrement recupUnEncadrementnote(int id) {
+
+        Encadrement encadre = new Encadrement();
+
+        try {
+
+            pst = super.getCon().prepareStatement("SELECT * FROM encadrement,themes,enseignant where id_encadrement=? and themes_id_theme=id_theme and enseignant_id_enseignant=id_enseignant");
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                //recuperation des info sur un themes
+                Theme th = new Theme();
+                th.setId(rs.getInt("id_theme"));
+                th.setLibelle(rs.getString("libelle_theme"));
+                th.setEtat_theme(rs.getString("etat_theme"));
+                //recupration des info sur un enseignant
+
+                Enseignant ens = new Enseignant();
+
+                ens.setId_enseignant(rs.getInt("enseignant_id_enseignant"));
+                //infomartion encadrement
+                encadre.setId_encadremet(rs.getInt("id_encadrement"));
+                encadre.setType_encadrement(rs.getString("type_encadrement"));
+                encadre.setEta_encadrement(rs.getString("etat_encadrement"));
+                encadre.setEnseignant(ens);
+                encadre.setTheme(th);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return encadre;
+    }
 
     /**
      * cette methode permet d'avoir tous les encadrement deja effectue presents

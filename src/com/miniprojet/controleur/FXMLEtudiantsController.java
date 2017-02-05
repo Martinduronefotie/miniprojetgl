@@ -104,7 +104,7 @@ public class FXMLEtudiantsController implements Initializable {
             List<Theme> list = new ArrayList<Theme>();
             list = thdao.AllThemes();
             EtudiantsDao etdao = new EtudiantsDao();
-             List<ModelEtudiants> liustetd= new ArrayList<ModelEtudiants>();
+            List<ModelEtudiants> liustetd= new ArrayList<ModelEtudiants>();
         
             liustetd=  etdao.recupAllEtudiants();
             data.clear();

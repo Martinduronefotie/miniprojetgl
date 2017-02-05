@@ -18,10 +18,11 @@ public class ModelEtudiants {
     private String prenom;
     private Double note ;
     
-    //info fronteint
+    //info frontend
     private String libelle;
     private String Type_encadrement;
     private String eta_encadrement ;
+    private int    numencadrement ;
 
     public ModelEtudiants(String idetudiants, Encadrement encadrement, String nom, String prenom, Double note) {
         this.idetudiants = idetudiants;
@@ -29,11 +30,20 @@ public class ModelEtudiants {
         this.nom = nom;
         this.prenom = prenom;
         this.note = note;
+        this.numencadrement= this.encadrement.getId_encadremet();
         
         libelle= this.encadrement.getTheme().getLibelle();
         Type_encadrement= this.encadrement.getType_encadrement();
         eta_encadrement= this.encadrement.getEta_encadrement();
         
+    }
+
+    public int getNumencadrement() {
+        return encadrement.getId_encadremet();
+    }
+
+    public void setNumencadrement(int numencadrement) {
+        this.numencadrement = encadrement.getId_encadremet();
     }
 
     public String getLibelle() {

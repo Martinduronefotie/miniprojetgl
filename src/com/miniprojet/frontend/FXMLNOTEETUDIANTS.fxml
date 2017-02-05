@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.miniprojet.controleur.FXMLNOTEETUDIANTSController">
-    
-</AnchorPane>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="832.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.miniprojet.controleur.FXMLNOTEETUDIANTSController">
+<children><Separator layoutX="154.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="11.0" /><TableView fx:id="tabetudiants" layoutX="160.0" prefHeight="200.0" prefWidth="672.0">
+<columns>
+<TableColumn fx:id="Cmatricule" prefWidth="75.0" text="matricule" />
+<TableColumn fx:id="Cnom" prefWidth="90.0" text="nom" />
+<TableColumn fx:id="Cprenom" prefWidth="90.0" text="prenom" />
+<TableColumn fx:id="Cthemes" prefWidth="87.0" text="themes" />
+<TableColumn fx:id="Ctypeencadrement" prefWidth="124.0" text="type encadrement" />
+<TableColumn fx:id="Cetatencadrement" prefWidth="89.0" text="etat encadrement" /><TableColumn fx:id="Cnote" prefWidth="64.0" text="note            " />
+<TableColumn fx:id="Cnumencadrement" prefWidth="52.0" text="N° encadrement" />
+</columns>
+</TableView><TextField fx:id="textnote" layoutX="14.0" layoutY="69.0" prefHeight="25.0" prefWidth="129.0" /><Button fx:id="btnenregistre" layoutX="43.0" layoutY="146.0" mnemonicParsing="false" onAction="#enregistrenote" prefHeight="25.0" prefWidth="71.0" text="enregistre" />
+</children></AnchorPane>

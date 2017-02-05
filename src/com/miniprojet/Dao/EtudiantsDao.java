@@ -102,7 +102,7 @@ public class EtudiantsDao extends Dao{
             pst.setInt(1,etd.getEncadrement().getId_encadremet());
             pst.setString(2,etd.getNom());
             pst.setString(3,etd.getPrenom());
-            pst.setDouble(4,0);
+            pst.setDouble(4,etd.getNote());
             pst.setString(5,etd.getIdetudiants());
 
             pst.executeUpdate();
@@ -170,6 +170,41 @@ public class EtudiantsDao extends Dao{
                 
                
                  Encadrement ecard = ecdao.recupUnEncadrementencours(rs.getInt("encadrement_id_encadrement"));
+                
+                //recupration des info sur un etudiants
+
+                etd.setEncadrement(ecard);
+                etd.setIdetudiants(rs.getString("id_etudiants"));
+                etd.setNom(rs.getString("nom"));
+                etd.setPrenom(rs.getString("prenom"));
+                etd.setNote(rs.getDouble("note"));
+                
+                listetd.add(etd);
+               
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return listetd;
+    }
+    
+     public List<ModelEtudiants> recupAllEtudiantsnote() {
+
+      List<ModelEtudiants> listetd = new ArrayList<ModelEtudiants>();
+       EncadrementDao ecdao = new EncadrementDao();
+      
+      try {
+            pst = super.getCon().prepareStatement("SELECT * FROM etudiants");
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                
+                ModelEtudiants etd = new ModelEtudiants();
+                //recuperation des info sur un encadrement
+                
+               
+                 Encadrement ecard = ecdao.recupUnEncadrementnote(rs.getInt("encadrement_id_encadrement"));
                 
                 //recupration des info sur un etudiants
 
