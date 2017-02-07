@@ -106,7 +106,8 @@ public class RendezVousDao extends Dao{
                
                 ModelEtudiants etd = new ModelEtudiants();
                 etd.setIdetudiants(rs.getString("id_etudiants"));
-                
+                etd.setNom(rs.getString("nom"));
+                etd.setPrenom(rs.getString("prenom"));
                //infomartion sur le rendez vous
                 rdv.setId_rendezVous(rs.getInt("id_rendez_vous"));
                 rdv.setInformation(rs.getString("information"));

@@ -24,8 +24,8 @@ public abstract class Dao {
         {
           Class.forName("com.mysql.jdbc.Driver");
           String url = "jdbc:mysql://localhost:3306/miniprojetgl";
-      String user = "root";  
-      String passwd = "";
+          String user = "root";  
+           String passwd = "";
  
       con = DriverManager.getConnection(url, user, passwd);
         }catch(Exception e)
