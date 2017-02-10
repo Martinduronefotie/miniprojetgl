@@ -76,6 +76,7 @@ public class FXMLSpecialiterController implements Initializable {
              textspecialiter.setText("");
              
          }
+        // Alert al = new Alert(AlertType.WARNING);
         
         // Specialiter spc = new Specialiter("lccc");
         // spc.setIspecialiter(3);
