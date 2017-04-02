@@ -53,6 +53,8 @@ public class FXMLEncadrementController implements Initializable {
     private Button btnmodifier;
     @FXML
     private Button btnsupencadrement;
+    @FXML
+    private Button btnactu;
    //tabview
     @FXML
     private TableView<Encadrement> tabencadrement;
@@ -75,7 +77,7 @@ public class FXMLEncadrementController implements Initializable {
   public void saveencaderment(ActionEvent event) throws IOException{
       
       
-      
+     
        comboencadrement.getValue();
       
        ThemesDao thdao = new ThemesDao();
@@ -89,6 +91,7 @@ public class FXMLEncadrementController implements Initializable {
          Enseignant es = new Enseignant("durone","durone");
          es.setId_enseignant(2);         
          EncadrementDao encDao = new EncadrementDao();
+         
          Encadrement enc = new Encadrement(th,es, (String) combotypeencadrement.getValue(),"");
          th.setEtat_theme("prit");
          
@@ -204,7 +207,7 @@ public class FXMLEncadrementController implements Initializable {
           combolis.clear();
           
           
-        List<Theme> list = new ArrayList<Theme>();
+         List<Theme> list = new ArrayList<Theme>();
          list=thdao.AllThemeslibre();
          
             for( Theme etd :list){
@@ -240,12 +243,26 @@ public class FXMLEncadrementController implements Initializable {
         
         textinfo.setText("");
         textinfocadrement.setText("");
-          
+   
+   }
+   
+   public  void actualisation(ActionEvent event){
+       
+        ThemesDao thdao = new ThemesDao();
+        List<Theme> list = new ArrayList<Theme>();
+         list=thdao.AllThemeslibre();
+         
+            combolis.clear();
+            for( Theme etd :list){
           
          
-        
+          combolis.add(etd.getLibelle());
          
-    
+          
+      }
+            
+            comboencadrement.setItems(combolis);
+       
    }
      
     

@@ -56,6 +56,8 @@ public class FXMLAnneacademiquesetudiantsController implements Initializable {
     private Button btnmodifier;
     @FXML
     private Button btnsupp;
+     @FXML
+    private Button btnactu;
     
     //tabview
     @FXML
@@ -136,6 +138,34 @@ public class FXMLAnneacademiquesetudiantsController implements Initializable {
         
         
     }
+    
+      public  void actualisation(ActionEvent event){
+       
+         EtudiantsDao etdao = new EtudiantsDao();
+        List<ModelEtudiants> liustetd= new ArrayList<ModelEtudiants>();
+        
+         liustetd=etdao.recupAllEtudiants();
+           datamatri.clear();
+         for (ModelEtudiants etd:liustetd){
+             
+             datamatri.add(etd.getIdetudiants());  
+         }
+         comboetudiants.setItems(datamatri);
+         
+         
+       
+          NiveauDao nivdao = new NiveauDao();
+         
+          List<Niveau> lisniv = new ArrayList<Niveau>();
+            lisniv=nivdao.AllNiveau();
+             datacomboniveau.clear();
+             for(Niveau niv : lisniv){
+             datacomboniveau.add(niv.getLibelle());
+         }
+             
+             comboniveau.setItems(datacomboniveau);
+       
+   }
     public  void modifierannes(ActionEvent event) throws IOException{
         
         if(!comboetudiants.getValue().equals("")&& 

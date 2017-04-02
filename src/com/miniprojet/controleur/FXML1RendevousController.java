@@ -130,6 +130,23 @@ public class FXML1RendevousController implements Initializable {
     }
     
     
+     public  void actualisation(ActionEvent event){
+       
+         EtudiantsDao etdao = new EtudiantsDao();
+        List<ModelEtudiants> liustetd= new ArrayList<ModelEtudiants>();
+        
+         liustetd=etdao.recupAllEtudiants();
+          combolis.clear();
+         for (ModelEtudiants etd:liustetd){
+             
+             combolis.add(etd.getIdetudiants());  
+         }
+         comboetudiantmaticule.setItems(combolis);
+        
+         
+   }
+    
+    
     
     public  void modifierrendevous (ActionEvent event) throws IOException {
         
@@ -226,9 +243,13 @@ public class FXML1RendevousController implements Initializable {
         
     }
     
+    public void mat(){
+         System.out.println("martin");
+    }
+    
     public  void  afficherdv(RendezVous rdv){
         
-        
+        System.out.println("martin");
         
         if(rdv!=null){
             

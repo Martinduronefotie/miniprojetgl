@@ -47,6 +47,8 @@ public class FXMLNiveauController implements Initializable {
     private Button btnenregistreniveau;
     @FXML
     private Button btnmodifier;
+    @FXML
+    private Button btnactu;
     @FXML 
     private ComboBox Combospeciliter;
     
@@ -102,6 +104,22 @@ public class FXMLNiveauController implements Initializable {
         }
        
     }
+    
+     public  void actualisation(ActionEvent event){
+       
+        SpecialiterDao  nvdao = new SpecialiterDao();
+        List<Specialiter> list = new ArrayList<Specialiter>();
+        list=nvdao.AllSpecialiter();
+            combolis.clear();
+            for( Specialiter spc:list){
+          
+               
+          combolis.add(spc.getLibelle());
+          
+      }
+          Combospeciliter.setItems(combolis);
+       
+   }
     
    public  void modifierniveau (ActionEvent event) throws IOException {
        

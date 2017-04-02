@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -21,6 +22,8 @@ public class FXMLMainController implements Initializable {
     
     
     @FXML FXML1RendevousController fxml1Rendevous ;
+   // @FXML Tab rdv;
+    
    // @FXML AnchorPane fxml1Rendevous ;
     /**
      * Initializes the controller class.
@@ -28,9 +31,8 @@ public class FXMLMainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         fxml1Rendevous = new FXML1RendevousController();
-        
-        
-        
+        fxml1Rendevous.mat();
+      
                 
     }    
     
