@@ -7,7 +7,7 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" prefHeight="400.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx/8" fx:controller="com.miniprojet.controleur.FXMLMainController">
 <children><TabPane layoutY="2.0" prefHeight="428.0" prefWidth="756.0" tabClosingPolicy="UNAVAILABLE">
   <tabs>
-     <Tab text="RENDEZ VOUS" >
+     <Tab text="RENDEZ VOUS" fx:id="rdv" >
      
         <content><fx:include source="FXML1Rendevous.fxml"/></content>
         
@@ -20,7 +20,7 @@
      
      <Tab text="ENCADREMENT" >
      
-      <content><fx:include source="FXMLEncadrement.fxml"/></content>
+      <content><fx:include source="FXMLEncadrement1.fxml"/></content>
         
      </Tab> 
      

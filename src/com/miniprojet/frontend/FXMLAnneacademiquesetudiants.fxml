@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.miniprojet.controleur.FXMLAnneacademiquesetudiantsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.miniprojet.controleur.FXMLAnneacademiquesetudiantsController">
 <children><Separator layoutX="175.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="5.0" /><ComboBox fx:id="comboetudiants" layoutX="14.0" layoutY="44.5" prefWidth="150.0" promptText="matricule etudiant" /><ComboBox fx:id="comboannes" layoutX="14.0" layoutY="93.5" prefWidth="150.0" promptText="anneés academiques" /><ComboBox fx:id="comboniveau" layoutX="14.0" layoutY="144.5" onAction="#choixniveau" prefWidth="150.0" promptText="niveau" /><ComboBox fx:id="combolistespecialiter" layoutX="14.0" layoutY="222.5" prefWidth="150.0" promptText="liste spéciliter" /><Button fx:id="btnenregistre" layoutX="14.1875" layoutY="284.5" mnemonicParsing="false" onAction="#saveanneetudiant" text="enregistre" /><Button fx:id="btnmodifier" layoutX="95.0" layoutY="285.0" mnemonicParsing="false" onAction="#modifierannes" prefHeight="25.0" prefWidth="70.0" text="modifier" /><TableView fx:id="tabannAcEtu" layoutX="178.0" layoutY="6.0" prefHeight="200.0" prefWidth="397.0">
   <columns>
 <TableColumn fx:id="Cid" minWidth="0.0" prefWidth="51.0" text="id" />
@@ -12,5 +12,5 @@
     <TableColumn fx:id="CannAcEtu" minWidth="0.0" prefWidth="125.0" text="années academiques" />
 <TableColumn fx:id="Cniveau" minWidth="0.0" prefWidth="99.0" text="niveau" />
   </columns>
-</TableView><Button fx:id="btnsupp" layoutX="324.0" layoutY="285.0" mnemonicParsing="false" onAction="#supprimerAnnEtu" prefHeight="25.0" prefWidth="82.0" text="supprimer" />
+</TableView><Button fx:id="btnsupp" layoutX="324.0" layoutY="285.0" mnemonicParsing="false" onAction="#supprimerAnnEtu" prefHeight="25.0" prefWidth="82.0" text="supprimer" /><Button fx:id="btnactu" layoutX="48.0" layoutY="362.0" mnemonicParsing="false" onAction="#actualisation" prefHeight="25.0" prefWidth="90.0" text="actualisation" />
 </children></AnchorPane>

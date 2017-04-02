@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="fxmlEncadrement" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.miniprojet.controleur.FXMLEncadrementController">
+<children><Separator layoutX="196.0" layoutY="1.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="6.0" /><ComboBox fx:id="comboencadrement" layoutX="18.0" layoutY="114.0" prefHeight="25.0" prefWidth="149.0" promptText="selectioner le theme" /><TextField fx:id="textinfocadrement" layoutX="18.0" layoutY="48.0" promptText="type encadrement selectionner " /><Button fx:id="btnsaveenc" layoutX="14.0" layoutY="226.0" mnemonicParsing="false" onAction="#saveencaderment" text="enregistre" /><Button fx:id="btnmodifier" layoutX="98.0" layoutY="226.0" mnemonicParsing="false" onAction="#modifierencadrement" prefHeight="25.0" prefWidth="70.0" text="modifier" /><TextField fx:id="textinfo" layoutX="18.0" layoutY="14.0" promptText="theme selectioner" /><Button fx:id="btnsupencadrement" layoutX="337.0" layoutY="315.0" mnemonicParsing="false" onAction="#suppencadrement" prefHeight="25.0" prefWidth="81.0" text="supprimer" /><ComboBox fx:id="combotypeencadrement" layoutX="17.5" layoutY="160.5" prefWidth="150.0" promptText="type encadrement" /><Separator layoutX="2.0" layoutY="88.0" prefHeight="6.0" prefWidth="196.0" /><TableView fx:id="tabencadrement" layoutX="200.0" layoutY="7.0" prefHeight="200.0" prefWidth="400.0">
+  <columns>
+    <TableColumn fx:id="Cidecad" prefWidth="93.0" text="id" />
+    <TableColumn fx:id="Cthemeenc" prefWidth="129.0" text="theme" />
+<TableColumn fx:id="Ctypeencadrem" prefWidth="99.0" text="type encadrement" />
+<TableColumn fx:id="Cetaencadre" prefWidth="74.0" text="etat encadrement" />
+  </columns>
+</TableView><Button fx:id="btnactu" layoutX="48.0" layoutY="362.0" mnemonicParsing="false" onAction="#actualisation" prefHeight="25.0" prefWidth="90.0" text="actualisation" />
+</children></AnchorPane>

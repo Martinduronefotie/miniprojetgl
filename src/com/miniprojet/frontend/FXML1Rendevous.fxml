@@ -13,5 +13,5 @@
 <TableColumn fx:id="Cinterval" prefWidth="123.0" text="interval alert" />
 <TableColumn fx:id="Cdate" prefWidth="123.0" text="date" />
   </columns>
-</TableView><Button fx:id="btnsup" layoutX="381.0" layoutY="247.0" mnemonicParsing="false" onAction="#supprimerrendevouz" prefHeight="25.0" prefWidth="90.0" text="supprimer" /><Label layoutX="5.0" layoutY="48.0" prefHeight="25.0" prefWidth="16.0" text="h:" /><Label layoutX="98.0" layoutY="52.0" prefHeight="17.0" prefWidth="26.0" text="mn:" />
+</TableView><Button fx:id="btnsup" layoutX="381.0" layoutY="247.0" mnemonicParsing="false" onAction="#supprimerrendevouz" prefHeight="25.0" prefWidth="90.0" text="supprimer" /><Label layoutX="5.0" layoutY="48.0" prefHeight="25.0" prefWidth="16.0" text="h:" /><Label layoutX="98.0" layoutY="52.0" prefHeight="17.0" prefWidth="26.0" text="mn:" /><Button fx:id="btnactu" layoutX="48.0" layoutY="362.0" mnemonicParsing="false" onAction="#actualisation" prefHeight="25.0" prefWidth="90.0" text="actualisation" />
 </children></AnchorPane>
